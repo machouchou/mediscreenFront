@@ -1,0 +1,32 @@
+<p>patient-list works!</p>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <!--th scope="col">#</th>-->
+            <th scope="col">Id Patient</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">BirthDate</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let patient of patients">
+            <td>{{ patient.idPatient }}</td>
+            <td>{{ patient.firstName }}</td>
+            <td>{{ patient.lastName }}</td>
+            <td>{{ patient.birthDate }}</td>
+            <td>{{ patient.sex }}</td>
+            <td>{{ patient.address }}</td>
+            <td>{{ patient.phone }}</td>
+            <td><a routerLink="/detail-patient/{{patient.idPatient}}" class="btn btn-info">Détail</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

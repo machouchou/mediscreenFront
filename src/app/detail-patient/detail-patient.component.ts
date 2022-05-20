@@ -14,7 +14,11 @@ export class DetailPatientComponent implements OnInit {
   patientForm!: FormGroup;
   public patient!: IPatient;
   
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private patientService: PatientService) { }
+  constructor(private formBuilder: FormBuilder, 
+    private route: ActivatedRoute, 
+    private patientService: PatientService) {
+
+   }
 
   
 

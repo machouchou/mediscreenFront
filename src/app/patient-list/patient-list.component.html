@@ -24,7 +24,9 @@
             <td>{{ patient.sex }}</td>
             <td>{{ patient.address }}</td>
             <td>{{ patient.phone }}</td>
-            <td><a routerLink="/detail-patient/{{patient.idPatient}}" class="btn btn-info">Détail</a></td>
+            <td><a routerLink="/detail-patient/{{patient.idPatient}}" class="btn btn-info">Detail</a>
+              <a routerLink="/edit-patient/{{patient.idPatient}}" class="btn btn-info">Update</a>
+            </td>
           </tr>
         </tbody>
       </table>

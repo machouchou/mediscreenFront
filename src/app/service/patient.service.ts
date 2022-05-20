@@ -13,10 +13,12 @@ export class PatientService {
 
   private idPatientUrl = 'http://localhost:8081/patientById';
   private patientUrl = 'http://localhost:8081/patient';
+  private patientUpdateUrl = 'http://localhost:8081/patientUpdated/';
 
   constructor(private http: HttpClient) {
     }
 
+    // HttpClient API get() method => Fetch patient
   public get(idPatient: number): Observable<any> {
     let params = new HttpParams();
     params = params.append('idPatient', idPatient);
@@ -29,7 +31,7 @@ export class PatientService {
     );
   }
   private handleError(error: HttpErrorResponse): Observable<never> {
-    let errorMessage = '';
+    let errorMessage = 'An erreur appears';
 
     if (error.error instanceof ErrorEvent) {
       errorMessage = `An error occured: ${error.error.message}`;
@@ -40,6 +42,8 @@ export class PatientService {
     console.error(errorMessage);
     return throwError(errorMessage)
   }
+
+  // HttpClient API post() method => Create patient
   public save(patient: IPatient): Observable<IPatient> {
     return this.http.post<IPatient>(this.patientUrl, patient)
     .pipe(
@@ -49,4 +53,14 @@ export class PatientService {
     );
   }
   
+  // HttpClient API put() method => Update patient
+  updatePatient(patient: IPatient): Observable<IPatient> {
+    return this.http
+      .put<IPatient>(this.patientUpdateUrl, patient)
+        .pipe(
+          tap(patientData => console.log('Patient : ' + JSON.stringify(patientData))),
+          shareReplay(),
+          catchError(this.handleError)
+    );
+  }
 }

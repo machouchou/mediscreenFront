@@ -4,10 +4,10 @@
     
     <div class="row">
     <aside class="col-sm-4 form-login">
-    <p>Patient form style </p>
+    <p>Patient form style 1</p>
     <div class="card">
     <article class="card-body">
-    <h4 class="card-title mb-4 mt-1">Form</h4>
+    <h4 class="card-title mb-4 mt-1">Create Patient Form</h4>
     <form [formGroup]="patientForm" (submit)="onSubmit()">
         <div class="form-group" >
             <label>Your First Name</label>
@@ -46,7 +46,7 @@
         </div> <!-- checkbox .// -->
         </div> <!-- form-group// -->  
         <div class="form-group">
-            <button type="submit" [disabled]="patientForm.invalid" class="btn btn-primary btn-block"> Register  </button>
+            <button type="submit" [disabled]="patientForm.invalid" class="btn btn-primary btn-block"> Register Patient </button>
         </div> <!-- form-group// -->                                                          
     </form>
     </article>

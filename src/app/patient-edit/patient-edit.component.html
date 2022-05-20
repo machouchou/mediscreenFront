@@ -1,1 +1,73 @@
 <p>patient-edit works!</p>
+<div class="container">
+    <!--<br>  <p class="text-center">More bootstrap 4 components on <a href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com</a></p>
+    <hr>-->
+    
+    <div class="row">
+    <aside class="col-sm-4 form-login">
+    <p>Patient form style 1</p>
+    <div class="card">
+    <article class="card-body">
+    <h4 class="card-title mb-4 mt-1">Update Patient Form</h4>
+    <form [formGroup]="patientForm" (submit)="onSubmit()">
+        <div class="form-group" >
+            <label>Your First Name</label>
+                <input name="" class="form-control" placeholder="First Name" type="text" formControlName="firstName" >
+                <span *ngIf="patientForm?.get('firstName')?.touched && patientForm?.get('firstName')?.invalid" style="color: red;"></span>
+        </div> <!-- form-group// -->
+        <div class="form-group">
+        <label>Your Last Name</label>
+            <input name="" class="form-control" placeholder="Last Name" type="text" formControlName="lastName" >
+            <span *ngIf="patientForm?.get('lastName')?.touched && patientForm?.get('lastName')?.invalid" style="color: red;"></span>
+        </div> 
+        <div class="form-group">
+            <label>Your BirthDate</label>
+                <input name="" class="form-control" placeholder="BirthDate" type="localDate" formControlName="birthDate" >
+                <span *ngIf="patientForm?.get('birthDate')?.touched && patientForm?.get('birthDate')?.invalid" style="color: red;"></span>
+            </div>
+            <div class="form-group">
+                <label>Your Sex</label>
+                    <input name="" class="form-control" placeholder="Sex" type="text" formControlName="sex" >
+                    <span *ngIf="patientForm?.get('sex')?.touched && patientForm?.get('sex')?.invalid" style="color: red;"></span>
+                </div> 
+        <div class="form-group">
+        <label>Your Address</label>
+            <input name="" class="form-control" placeholder="address" type="text" formControlName="address" >
+            <span *ngIf="patientForm?.get('address')?.touched && patientForm?.get('address')?.invalid" style="color: red;"></span>
+        </div> <!-- form-group// -->
+        <div class="form-group">
+        <label>Your Phone</label>
+            <input name="" class="form-control" placeholder="Phone" type="text" formControlName="phone" >
+            <span *ngIf="patientForm?.get('phone')?.touched && patientForm?.get('phone')?.invalid" style="color: red;"></span>
+        </div> 
+        
+        <div class="form-group">
+        <div class="checkbox">
+          <label> <input type="checkbox"> Update patient </label>
+        </div> <!-- checkbox .// -->
+        </div> <!-- form-group// -->  
+        <div class="form-group">
+            <button type="submit" [disabled]="patientForm.invalid" class="btn btn-primary btn-block"> Update Patient  </button>
+        </div> <!-- form-group// -->                                                          
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    </aside> <!-- col.// -->
+  
+    </div> <!-- row.// -->
+    
+    </div>
+    <!--container end.//-->
+    
+    <br><br><br>
+    <article class="bg-secondary mb-3">  
+    <!--<div class="card-body text-center">
+        <h4 class="text-white">HTML UI KIT <br> Ready to use Bootstrap 4 components and templates </h4>
+    <p class="h5 text-white"> for Ecommerce, marketplace, booking websites
+    and product landing pages</p>   <br>
+    <p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com  
+     <i class="fa fa-window-restore "></i></a></p>
+    </div>
+    <br><br><br>-->
+    </article>

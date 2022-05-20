@@ -46,7 +46,7 @@ export class PatientComponent implements OnInit {
         (res: any) => {
           if (res['errorCode'] === null) {
             this.toastr.success('Registration successful', ' Message');
-            this.router.navigate(['']);
+            this.router.navigate(['/list-patients']);
           } else {
             console.log(res);
             this.toastr.error(res['errorDescription'], ' Message');

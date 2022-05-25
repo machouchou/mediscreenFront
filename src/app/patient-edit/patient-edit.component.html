@@ -9,7 +9,7 @@
     <div class="card">
     <article class="card-body">
     <h4 class="card-title mb-4 mt-1">Update Patient Form</h4>
-    <form [formGroup]="patientForm" (submit)="onSubmit()">
+    <form *ngIf="patient" [formGroup]="patientForm" (submit)="onSubmit()">
         <div class="form-group" >
             <label>Your First Name</label>
                 <input name="" class="form-control" placeholder="First Name" type="text" formControlName="firstName" >
@@ -41,11 +41,7 @@
             <span *ngIf="patientForm?.get('phone')?.touched && patientForm?.get('phone')?.invalid" style="color: red;"></span>
         </div> 
         
-        <div class="form-group">
-        <div class="checkbox">
-          <label> <input type="checkbox"> Update patient </label>
-        </div> <!-- checkbox .// -->
-        </div> <!-- form-group// -->  
+        <br>
         <div class="form-group">
             <button type="submit" [disabled]="patientForm.invalid" class="btn btn-primary btn-block"> Update Patient  </button>
         </div> <!-- form-group// -->                                                          

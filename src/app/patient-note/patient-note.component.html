@@ -1,0 +1,50 @@
+<p>patient-note works!</p>
+<div class="container">
+    <!--<br>  <p class="text-center">More bootstrap 4 components on <a href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com</a></p>
+    <hr>-->
+    
+    <div class="row">
+    <aside class="col-sm-6 form-login">
+    <p>Patient Note form </p>
+    <div class="card">
+    <article class="card-body">
+    <h4 class="card-title mb-4 mt-1">Create Patient Note</h4>
+    <form [formGroup]="noteForm" (submit)="onSubmit()">
+        <div class="form-group" >
+            <label>Patient Id</label>
+                <input name="" class="form-control" placeholder="id" type="text" formControlName="id" >
+                <span *ngIf="noteForm?.get('id')?.touched && noteForm?.get('id')?.invalid" style="color: red;"></span>
+        </div> <!-- form-group// -->
+        <div class="form-group">
+        <label>Patient Note</label>
+            <input name="" class="form-control" placeholder="Patient Note" type="text" formControlName="note" >
+            <span *ngIf="noteForm?.get('note')?.touched && noteForm?.get('note')?.invalid" style="color: red;"></span>
+        </div> 
+        
+        <br>
+         
+        <div class="form-group">
+            <button type="submit" [disabled]="noteForm.invalid" class="btn btn-primary btn-block"> Register Note</button>
+        </div> <!-- form-group// -->                                                          
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    </aside> <!-- col.// -->
+  
+    </div> <!-- row.// -->
+    
+    </div>
+    <!--container end.//-->
+    
+    <br><br><br>
+    <article class="bg-secondary mb-3">  
+    <!--<div class="card-body text-center">
+        <h4 class="text-white">HTML UI KIT <br> Ready to use Bootstrap 4 components and templates </h4>
+    <p class="h5 text-white"> for Ecommerce, marketplace, booking websites
+    and product landing pages</p>   <br>
+    <p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com  
+     <i class="fa fa-window-restore "></i></a></p>
+    </div>
+    <br><br><br>-->
+    </article>

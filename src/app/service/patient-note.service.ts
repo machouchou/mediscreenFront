@@ -12,19 +12,32 @@ export class PatientNoteService {
 
   private noteUrl = 'http://localhost:8082/notes'
   private addNoteUrl = 'http://localhost:8082/note'
+  private updateNoteUrl = 'http://localhost:8082/noteUpdated'
+  private findByIdUrl = 'http://localhost:8082/noteById'
 
   constructor(private http: HttpClient) {
 
    }
 
-   // HttpClient API get() method => Fetch patient
+   // HttpClient API get() method => Fetch patient notes
   public get(id: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('patientId', id);
 
     return this.http.get<IResponse>(this.noteUrl, {params: params})
     .pipe(
-      tap(response  => console.log('Patient : ' + JSON.stringify(response ))),
+      tap(response  => console.log('Notes : ' + JSON.stringify(response ))),
+      shareReplay(),
+      catchError(this.handleError)
+    );
+  }
+  public getByIdNote(id: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('idNote', id);
+
+    return this.http.get<IResponse>(this.findByIdUrl, {params: params})
+    .pipe(
+      tap(response  => console.log('Notes : ' + JSON.stringify(response ))),
       shareReplay(),
       catchError(this.handleError)
     );
@@ -42,14 +55,23 @@ export class PatientNoteService {
     return throwError(errorMessage)
   }
 
-  // HttpClient API post() method => Create patient
-  public save(note: IPatientNote): Observable<IPatientNote> {
+  // HttpClient API post() method => Create patient note
+  public saveNote(note: IPatientNote): Observable<IPatientNote> {
     return this.http.post<IPatientNote>(this.addNoteUrl, note)
     .pipe(
-      tap(noteData => console.log('Note : ' + JSON.stringify(      tap(noteData => console.log('Patient : ' + JSON.stringify(noteData))),
-      ))),
+      tap(noteData => console.log('Patient : ' + JSON.stringify(noteData))),
       shareReplay(),
       catchError(this.handleError)
+    );
+  }
+  // HttpClient API put() method => Update patient note
+  updateNote(note: IPatientNote): Observable<IPatientNote> {
+    return this.http
+      .put<IPatientNote>(this.updateNoteUrl, note)
+        .pipe(
+          tap(noteData => console.log('Note : ' + JSON.stringify(noteData))),
+          shareReplay(),
+          catchError(this.handleError)
     );
   }
 }

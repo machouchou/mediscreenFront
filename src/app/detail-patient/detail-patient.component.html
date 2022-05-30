@@ -4,7 +4,7 @@
     <hr>-->
     
     <div class="row">
-    <aside class="col-sm-4 form-login">
+    <aside class="col-sm-6 form-login">
     <p>Display Patient Detail form style 1</p>
     <div class="card">
     <article class="card-body">
@@ -43,7 +43,7 @@
                                                                          
     </form>
     </article>
-    <div class="card my-5">
+    <div *ngIf="patient" class="card ">
         <div class="card-body">
           <table class="table table-bordered table-striped">
             <thead class="thead-dark">
@@ -58,8 +58,8 @@
           <tr *ngFor="let patientNote of patientNotes">
             <td>{{patientNote.id }}</td>
             <td>{{patientNote.note  }}</td>
-            <td><a routerLink="/detail-patient/{{patient.idPatient}}" class="btn btn-info">Add Note</a>
-                <a routerLink="/edit-patient/{{patient.idPatient}}" class="btn btn-info">Update Note</a>
+            <td>
+                <a routerLink="/patient-note-edit/{{patientNote.id}}" class="btn btn-info">Update Note</a>
               </td>
             </tr>
           </tbody>

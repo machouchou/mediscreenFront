@@ -1,5 +1,5 @@
 export interface IPatientNote {
     id?: string;
-    patientId: string;
+    patientId?: string;
     note: string
 }

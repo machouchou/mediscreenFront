@@ -40,7 +40,7 @@ export class PatientEditComponent implements OnInit {
   onSubmit() {
     console.log('bonjour');
     this.patientModel={
-      "idPatient": this.id,
+      "patientId": this.id,
       "firstName":this.patientForm.get('firstName')!.value,
       "lastName":this.patientForm.get('lastName')!.value,
       "birthDate":this.patientForm.get('birthDate')!.value,

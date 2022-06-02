@@ -1,5 +1,5 @@
 export interface IPatient {
-    idPatient?: number;
+    patientId?: number;
     firstName: string;
     lastName: string;
     birthDate: string;

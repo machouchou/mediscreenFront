@@ -5,7 +5,7 @@
         <thead class="thead-dark">
           <tr>
             <!--th scope="col">#</th>-->
-            <th scope="col">Id Patient</th>
+            <th scope="col">Patient Id</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">BirthDate</th>
@@ -17,16 +17,16 @@
         </thead>
         <tbody>
           <tr *ngFor="let patient of patients">
-            <td>{{ patient.idPatient }}</td>
+            <td>{{ patient.patientId }}</td>
             <td>{{ patient.firstName }}</td>
             <td>{{ patient.lastName }}</td>
             <td>{{ patient.birthDate }}</td>
             <td>{{ patient.sex }}</td>
             <td>{{ patient.address }}</td>
             <td>{{ patient.phone }}</td>
-            <td><a routerLink="/detail-patient/{{patient.idPatient}}" class="btn btn-info">Detail</a>
-              <a routerLink="/edit-patient/{{patient.idPatient}}" class="btn btn-info">Update</a>
-              <a routerLink="/patient-note/{{patient.idPatient}}" class="btn btn-info">Add Note</a>
+            <td><a routerLink="/detail-patient/{{patient.patientId}}" class="btn btn-info">Detail</a>
+              <a routerLink="/edit-patient/{{patient.patientId}}" class="btn btn-info">Update</a>
+              <a routerLink="/patient-note/{{patient.patientId}}" class="btn btn-info">Add Note</a>
             </td>
           </tr>
         </tbody>

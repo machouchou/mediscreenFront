@@ -19,9 +19,9 @@ export class PatientService {
     }
 
     // HttpClient API get() method => Fetch patient
-  public get(idPatient: number): Observable<any> {
+  public get(patientId: number): Observable<any> {
     let params = new HttpParams();
-    params = params.append('idPatient', idPatient);
+    params = params.append('patientId', patientId);
 
     return this.http.get<IResponse>(this.idPatientUrl, {params: params})
     .pipe(

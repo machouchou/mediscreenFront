@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { IResponse } from '../interface/response';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { IPatientNote } from '../interface/patient-note';
+import { RiskLevel } from '../interface/risk-level';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class PatientNoteService {
   private addNoteUrl = 'http://localhost:8082/note'
   private updateNoteUrl = 'http://localhost:8082/noteUpdated'
   private findByIdUrl = 'http://localhost:8082/noteById'
+  private assessUrl = 'http://localhost:8080/assess'
 
   constructor(private http: HttpClient) {
 
@@ -31,6 +33,7 @@ export class PatientNoteService {
       catchError(this.handleError)
     );
   }
+
   public getByIdNote(id: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('idNote', id);
@@ -38,6 +41,19 @@ export class PatientNoteService {
     return this.http.get<IResponse>(this.findByIdUrl, {params: params})
     .pipe(
       tap(response  => console.log('Notes : ' + JSON.stringify(response ))),
+      shareReplay(),
+      catchError(this.handleError)
+    );
+  }
+
+  // HttpClient API getAssess() method => Fetch patient assessment
+  public getDiabeteRiskLevel(patientId: string): Observable<RiskLevel> {
+    let params = new HttpParams();
+    params = params.append('patientId', patientId);
+
+    return this.http.get<RiskLevel>(this.assessUrl, {params: params})
+    .pipe(
+      tap(response  => console.log('Niveau de risque du diabete : ' + JSON.stringify(response ))),
       shareReplay(),
       catchError(this.handleError)
     );

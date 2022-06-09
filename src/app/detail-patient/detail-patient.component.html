@@ -1,4 +1,3 @@
-<p>detail-patient works!</p>
 <div class="container">
     <!--<br>  <p class="text-center">More bootstrap 4 components on <a href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com</a></p>
     <hr>-->
@@ -65,7 +64,17 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> 
+    
+    <div class="form-group" style="background-color: chartreuse;">
+      <h4>LE NIVEAU DE RISQUE DU DIABETE</h4>
+      <form *ngIf="diabeteRiskLevel" [formGroup]="diabeteAssessForm">
+        <input name="" class="form-control" placeholder="diabeteRiskLevel" type="text" formControlName="diabeteRiskLevel" >
+        <span *ngIf="diabeteAssessForm?.get('diabeteRiskLevel')?.touched && diabeteAssessForm?.get('diabeteRiskLevel')?.invalid" style="color: red;"></span>
+      </form>
+          
+      </div>     
+    
     </div> <!-- card.// -->
     
     </aside> <!-- col.// -->

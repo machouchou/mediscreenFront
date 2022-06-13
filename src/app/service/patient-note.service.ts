@@ -47,7 +47,7 @@ export class PatientNoteService {
   }
 
   // HttpClient API getAssess() method => Fetch patient assessment
-  public getDiabeteRiskLevel(patientId: string): Observable<RiskLevel> {
+  public getDiabeteRiskLevel(patientId: number): Observable<RiskLevel> {
     let params = new HttpParams();
     params = params.append('patientId', patientId);
 

@@ -8,11 +8,6 @@
     <article class="card-body">
     <h4 class="card-title mb-4 mt-1">Create Patient Note</h4>
     <form [formGroup]="noteForm" (submit)="onSubmit()">
-        <div class="form-group" >
-            <label>Patient Id</label>
-                <input name="" class="form-control" placeholder="id" type="text" formControlName="id" >
-                <span *ngIf="noteForm?.get('id')?.touched && noteForm?.get('id')?.invalid" style="color: red;"></span>
-        </div> <!-- form-group// -->
         <div class="form-group">
         <label>Patient Note</label>
             <input name="" class="form-control" placeholder="Patient Note" type="text" formControlName="note" >

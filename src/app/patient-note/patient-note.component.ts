@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IPatientNote } from '../interface/patient-note';
 import { PatientNoteService } from '../service/patient-note.service';
@@ -16,11 +16,12 @@ export class PatientNoteComponent implements OnInit {
   noteForm: FormGroup;
   
   noteModel!: IPatientNote;
-
+  private id!: string;
+  
   constructor(private formBuilder: FormBuilder, private patientNoteService: PatientNoteService,
-    private router: Router, private toastr: ToastrService) { 
+    private router: Router, private toastr: ToastrService, private route: ActivatedRoute ) { 
+      this.id = this.route.snapshot.params['id'];
       this.noteForm = this.formBuilder.group({
-        id: ['', Validators.required],
         note: ['', Validators.required],
     });
   } 
@@ -31,7 +32,7 @@ ngOnInit() {
   onSubmit() {
     console.log('bonjour');
     this.noteModel={
-      "patientId":this.noteForm.get('id')!.value,
+      "patientId": this.id,
       "note":this.noteForm.get('note')!.value
     }
 
